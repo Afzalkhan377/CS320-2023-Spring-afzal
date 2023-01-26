@@ -1,0 +1,27 @@
+use "./../assign00-lib.sml";
+
+
+
+fun exponent(x: int, extra: int, num: int): int=
+if num=1 then x
+else if num= 0 then 1
+else
+exponent(x*extra,extra, num-1)
+
+fun str2int2(cs: string, n: int): int =
+if String.size(cs)-1=n
+   then (Char.ord(String.sub(cs,n)) - 48)
+else
+	str2int2(cs,n+1) + ((Char.ord(String.sub(cs,n)) - 48) * exponent(10, 10, String.size(cs) - n - 1))
+
+
+
+
+
+
+
+
+
+fun str2int(cs: string): int =
+str2int2(cs,0)
+
