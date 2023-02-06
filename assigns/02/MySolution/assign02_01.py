@@ -13,4 +13,14 @@ print("[import ./../assign02.py] is done!")
 #
 ####################################################
 def mylist_append(xs,ys):
-    
+    if  mylist_nilq(xs):
+        return ys
+    else:
+       return  mylist_cons(mylist_cons.get_cons1(xs), mylist_append(mylist_cons.get_cons2(xs),ys))
+def mylist_rappend(xs,ys):
+     if	mylist_nilq(xs):
+         return ys
+     else:
+         return mylist_rappend(mylist_cons.get_cons2(xs), mylist_cons(mylist_cons.get_cons1(xs),ys))
+def mylist_reverse(xs):
+    return mylist_rappend(xs,mylist_nil())
