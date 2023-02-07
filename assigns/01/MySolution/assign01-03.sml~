@@ -1,0 +1,19 @@
+use "./../assign01-lib.sml";
+use "./../MySolution/assign01-01.sml";
+
+
+
+helper(xs: "a xlist, count: int): ' a xlist=
+xlist_nil=>[]
+|
+xlist_cons(x1, xs)=>if count=xlist_size(xs) then xs else helper(xlist_snoc(xs,x1),count+1)
+|
+xlist_snoc(xs,x1)=> if count=xlist_size(xs) then xs else helper(xlist_cons(xs,x1),count+1)
+|
+xlist_append(xs,ys)=> if count=
+
+
+
+
+fun xlist_remove_reverse(xs: 'a xlist): 'a xlist=
+helper(xs,0)
