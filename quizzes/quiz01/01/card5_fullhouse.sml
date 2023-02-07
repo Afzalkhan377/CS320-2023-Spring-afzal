@@ -171,26 +171,60 @@ in the given tuple are from the same deck.
 fun card5_fullhouse(cs: card5): bool
 
 //
+*)
+(*
 I want to make two helper fucntion that will check each tuple and then i will compare each value if they had 3 and 2 then i will return true
 *)
-fun suitechecker(cs:card5,count1 
+
+
+
+fun get_card1(cs:card5): card=
+#1(cs)
+
+fun get_card2(cs:card5): card=
+#2(cs)
+
+fun get_card3(cs:card5): card=
+#3(cs)
+
+fun get_card4(cs:card5): card=
+#4(cs)
+
+fun get_card5(cs:card5): card=
+#5(cs)
+
+fun helper(h:int5):bool=
+if (#1(h) = #2(h) andalso #2(h) = #3(h) andalso #3(h) = #4(h)) then false
+else if (#1(h) = #2(h) andalso #2(h) = #3(h) andalso #4(h) = #5(h)) then true
+else if(#1(h) = #2(h) andalso #3(h) = #4(h) andalso #5(h) = #4(h)) then true
+else false
+
+fun sort(cs:card5): bool=
+helper(int5_sort(rank2int(card_rank(get_card1(cs))), rank2int(card_rank(get_card2(cs))),rank2int(card_rank(get_card3(cs))),rank2int(card_rank(get_card4(cs))),rank2int(card_rank(get_card5(cs)))))
+
+
+fun card5_fullhouse(cs: card5): bool =
+sort(cs)
+
+(*
+
+fun suitechecker(cs:card5,count1 )
 
 fun rankchecker(cs:card5,count1:int, counter:int, d:int):int=
 if rank2int(#d(cs))=rank2int(#count1(cs)) then 1+ rankchecker(cs,count1+1,counter+1)
 else
-rankchecker(cs,count+1,0)
+rankchecker(cs,count1+1
+fun suitchecker()
 
-fun suitchecker(
-
-fun
-card5_fullhouse(cs: card5): bool =
+fun card5_fullhouse(cs: card5): bool =
 val 1 =rankchecker(cs,0,0,1)
 val 2=rankchecker(cs,0,0,2)
 val 3=rankchecker(cs,0,0,3)
 val 4=rankchecker(cs,0,0,4)
-(*
+
 Please Give your implementation as follows:
-*
+
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-quiz01-card5_fullhouse.sml] *)
+*)
