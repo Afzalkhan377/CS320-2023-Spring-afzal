@@ -48,9 +48,13 @@ in a non-recursive manner such that int5_sort(xs) equals
 int5_sort_nr(xs) for every 5-tuple xs of the type int5.
 *)
 (* ****** ****** *)
-
+*)
+I didn't have enought time but my approach is to check each number using if and false or use patter matching which is not recursive)
+(*
 fun
 int5_sort_nr(xs: int5): int5 =
+let fun loop(xs:int5,
+
 (*
 Please Give your implementation as follows:
 *)
