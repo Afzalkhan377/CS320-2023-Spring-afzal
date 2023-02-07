@@ -169,15 +169,28 @@ the same rank value). For instance,
 in the given tuple are from the same deck.
 //
 fun card5_fullhouse(cs: card5): bool
+
 //
+I want to make two helper fucntion that will check each tuple and then i will compare each value if they had 3 and 2 then i will return true
 *)
+fun suitechecker(cs:card5,count1 
+
+fun rankchecker(cs:card5,count1:int, counter:int, d:int):int=
+if rank2int(#d(cs))=rank2int(#count1(cs)) then 1+ rankchecker(cs,count1+1,counter+1)
+else
+rankchecker(cs,count+1,0)
+
+fun suitchecker(
 
 fun
 card5_fullhouse(cs: card5): bool =
+val 1 =rankchecker(cs,0,0,1)
+val 2=rankchecker(cs,0,0,2)
+val 3=rankchecker(cs,0,0,3)
+val 4=rankchecker(cs,0,0,4)
 (*
 Please Give your implementation as follows:
-*)
-
+*
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-quiz01-card5_fullhouse.sml] *)
