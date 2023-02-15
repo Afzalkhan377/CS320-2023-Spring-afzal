@@ -22,6 +22,32 @@ the list_range function
 fun list_range(start: int, finish: int): int list
 *)
 
+
+
+
+
+fun list_range(start: int, finish: int): int list=
+
+let
+fun helper(start: int, finish: int, li: int list):int list=
+
+if start>=finish
+   then li
+
+else
+	helper(start,finish-1, finish-1::li)
+
+in
+
+	helper(start,finish ,[])
+
+end
+
+
+
+
+
+
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-assign03-02.sml] *)
