@@ -34,28 +34,44 @@ end (* end of [list_length(xs)]: let *)
 
 
 
-fun list_maker(xs:int list,ys:int list): int list=
+
+
+
+fun bigger(xs: int list, ys:int list): int list=
+if list_length(ys)<list_length(xs) then xs
+else ys
+
+
+
+fun list_maker(xs:int list): int list=
 case xs of
 []=>[]
 |[x]=>[x]
-|x1::x2::xs=> if x1 <= x2 then x1::list_maker(xs,x2::ys)
-	       else list_maker(xs,ys)
+|x1::x2::xs=> if x1 > x2 then list_maker(x1::xs) else
+	      bigger( list_maker(x1::xs) ,x1::list_maker(x2::xs))
+	      
+
+
+
 
 
 
 fun helper(xs:int list, ys:int list): int list=
 case xs of
-[]=> ys
-|x::xs=>let val zs=list_maker(x::xs,[])
+[]=>ys
+|x::xs=>let val zs=list_maker(x::xs)
 	    in
 	    
-		if list_length(zs)>= list_length(ys)
+		if list_length(zs)> list_length(ys)
 	       	   then helper(xs,zs)
 
 	    	else
 			helper(xs,ys)
 	    
 	    end
+
+
+
 fun list_longest_ascend(xs: int list): int list=
 helper(xs,[])
 
