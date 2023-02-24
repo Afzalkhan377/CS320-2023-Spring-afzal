@@ -12,8 +12,15 @@ https://ats-lang.sourceforge.net/DOCUMENT/INT2PROGINATS/HTML/x631.html
 //
 Please give a NON-RECURSIVE implementation that solves the 8-queen puzzle.
 //
-
+type board_t =
+int * int * int * int * int * int * int * int
+//
+fun
+queen8_puzzle_solve(): board_t list =
+(*
 returns a list of boards consisting of all the solutions to the puzzle.
+*)
+//
 *)
 
 (* ****** ****** *)
@@ -87,14 +94,11 @@ val queen8_puzzle_solve=fn()=>
 let val start=[(0,0,0,0,0,0,0,0)]
 val board_list=int1_foldleft(8,start,fn(row,i0)=>nb(row,i0))
 val board_list_plus_one = fn(board1:board_t)=>
-let
-val(p,q,r,s,t,u,v,z)=board1
-in(p+1,q+1,r+1,s+1,t+1,u+1,v+1,z+1)
+let val(p,q,r,s,t,u,v,z)=board1 in(p+1,q+1,r+1,s+1,t+1,u+1,v+1,z+1)
 end
-val board_update=list_map(board_list,board_list_plus_one)
-
-in
-board_update
+val board_update=list_map(board_list,board_list_plus_on
+    in
+        board_update
 
 end
 

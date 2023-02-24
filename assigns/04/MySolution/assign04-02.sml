@@ -9,7 +9,7 @@ The function [list_subsets]
 returns all the subsets of a given
 set (where sets are represented as lists)
 //
-fun
+
 list_subsets
 (xs: 'a list): 'a list list =
 (
@@ -36,7 +36,7 @@ val
 list_subsets =
 fn(xs: 'a list) => ...
 *)
-val list_subsets = fn(xs: 'a list) =>list_foldleft(xs,[[]],fn(x1,x2)=> x1 @ list_map(x1, fn(xs)=> x2::xs)) 
+val list_subsets = fn(xs: 'a list) =>list_foldleft(xs,[[]],fn(x1,x2)=>  x1 @ list_map(x1, fn(xs)=> x2::xs)) 
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-assign04-02.sml] *)

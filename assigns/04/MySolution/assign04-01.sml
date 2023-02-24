@@ -13,7 +13,7 @@ the mysml<ib-library for this class.
 (* ****** ****** *)
 
 (*
-fun
+
 isPrime(n0: int): bool =
 let
 fun
