@@ -61,7 +61,13 @@ the previous.
 fun
 magic_triangle (n : int) : int list list = ...
 *)
-
+fun
+magic_triangle (n : int) : int list list =
+ let
+        fun next_row prev_row =
+            let
+                fun sum_adjacent_pairs xs =
+                    case xs of
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-midterm1-magic_triangle.sml] *)
