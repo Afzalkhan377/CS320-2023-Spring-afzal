@@ -37,6 +37,37 @@ val nxs = list_grouping(int1_map_list(N, fn i => N-i))
 *)
 (* ****** ****** *)
 
+
+
+
+fun count_occurrences(x: int, xs: int list): int =
+      list_length(list_filter(xs, fn y => x = y))
+
+
+
+
+
+fun list_grouping(xs: int list): (int * int) list = 
+let
+
+fun tuples(xs:int list, ys: (int * int) list): (int * int) list=
+
+case xs of
+[]=>ys
+
+|x::xs=> let
+
+
+val help= (count_occurrences(x,xs)+1,x)::ys
+val helper=list_filter(xs,fn(c)=>c<>x)
+in tuples(helper,help)
+end
+in list_reverse(tuples(xs,[]))
+end
+
+
+
+
 (*
 Some testing code:
 Your implementation needs to be efficient to pass the
