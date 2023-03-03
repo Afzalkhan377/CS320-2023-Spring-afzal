@@ -61,13 +61,48 @@ the previous.
 fun
 magic_triangle (n : int) : int list list = ...
 *)
+
+
+
+(*
+fun sums(xs:int list):int list=
+case xs of
+[] => []
+| [x] => []
+| x1 :: x2 :: xs => (x1 + x2) :: sums(x2 :: xs)
+
+
+
+fun helper2(xs:int list):int list=
+1::sums[xs] @ [1]
+*)
+
+
+fun helper2(xs : int list) : int list =
+    let
+        fun sums (xs : int list) : int list =
+            case xs of
+                [] => []
+                | [x] => []
+                | x1 :: x2 :: xs => (x1 + x2) :: sums(x2 :: xs)
+    in
+        1 :: sums(xs) @ [1]
+    end
+
+fun helper(i:int, j:int list, acc : int list list, k: int):int list list =
+case k>=i of
+true=>acc
+|false=>
+helper(i,helper2(j),helper2(j)::acc,k+1)
+
+
 fun
 magic_triangle (n : int) : int list list =
- let
-        fun next_row prev_row =
-            let
-                fun sum_adjacent_pairs xs =
-                    case xs of
+ if n=0 then list_reverse(helper(1,[1],[[1]], 1)) else
+    list_reverse(helper(n+1,[1],[[1]], 1))
+
+
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-midterm1-magic_triangle.sml] *)
+B

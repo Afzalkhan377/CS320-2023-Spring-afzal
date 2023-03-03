@@ -35,23 +35,22 @@ fun
 list_averages(xs: real list): real list = ...
 *)
 
+
 fun list_averages(xs: real list): real list =
-
-case xs of
-[]=>[]
-|x::xs=>let
-fun helper(rs:real list, i:int,ys:real list): real list=
-|x1::xs=> helper(rs,i+1,x::ys)
-|y::ys=>
-let
-	val avg=((x1+y)*Real.fromInt(i))/Real.fromInt(i+1)
-in
-	helper(rs,i+1,avg::ys)
-end
-
-in
-helper(xs,0,[])
-end
+  let
+    fun avg_helper(xs: real list, count: real, sum: real): real list =
+      case xs of
+        [] => []
+      | x::xs => 
+          let
+            val new_sum =  sum + x  
+            val new_count = count + 1.0
+          in
+            (new_sum / new_count) :: avg_helper(xs, new_count, new_sum)
+          end
+  in
+    avg_helper(xs, 0.0, 0.0)
+  end
 (* ****** ****** *)
 
 (* end of [CS320-2023-Spring-midterm1-list_averages.sml] *)
